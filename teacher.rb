@@ -1,4 +1,4 @@
-require_relative "Person"
+require_relative 'person'
 
 class Teacher < Person
   def initialize(*all, specialization)
@@ -12,5 +12,5 @@ class Teacher < Person
 end
 
 # test create new teacher
-new_teacher = Teacher.new(32, "Alex", "Math")
+new_teacher = Teacher.new(32, 'Alex', 'Math')
 p new_teacher
