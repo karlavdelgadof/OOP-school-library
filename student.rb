@@ -1,6 +1,8 @@
 require_relative 'person'
 
 class Student < Person
+  attr_accessor :classroom
+
   def initialize(*all, classroom)
     super(*all)
     @classroom = classroom
@@ -9,8 +11,9 @@ class Student < Person
   def play_hooky
     "¯\(ツ)/¯"
   end
-end
 
-# test create new student
-new_student = Student.new(18, 'Lindsay', false, 5)
-p new_student
+  def classroom=(classroom)
+    @classroom = classroom
+    classroom.students.push(self) unless classroom.students.include?(self)
+  end
+end
