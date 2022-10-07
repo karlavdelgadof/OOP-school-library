@@ -25,8 +25,7 @@ class Person < Nameable
   end
 
   def create_rental(rental)
-    @rentals << rental
-    rental.person = self
+    Rental.new(date, self, person)
   end
 
   private
@@ -36,10 +35,3 @@ class Person < Nameable
   end
 end
 
-# test create class decorator
-# person = Person.new(22, 'maximilianus')
-# person.correct_name
-# capitalized_person = CapitalizeDecorator.new(person)
-# capitalized_person.correct_name
-# capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-# p capitalized_trimmed_person.correct_name
