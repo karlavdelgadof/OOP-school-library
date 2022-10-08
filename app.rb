@@ -30,6 +30,8 @@ class App
       print 'Enter Option [number]: '
       user_response = gets.chomp
       puts "\n\n"
+      check_selection(user_response)
+
     end
     puts "Thank you for using this app!\n\n" if user_response == '7'
   end
