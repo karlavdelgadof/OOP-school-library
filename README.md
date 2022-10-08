@@ -57,7 +57,7 @@ Kindly modify the files as needed.
 - Milestone 1: Add Person, Student, and Teacher classes. ✅
 - Milestone 2: Use the "Decorator" design pattern. ✅
 - Milestone 3: Set up associations.	✅
-- Milestone 4: Add basic UI. ⚙️
+- Milestone 4: Add basic UI. ✅
 - Milestone 5: Refactor the code. ⚙️
 - Milestone 6: Preserve data. ⚙️
 - Milestone 7: Unit tests. ⚙️
