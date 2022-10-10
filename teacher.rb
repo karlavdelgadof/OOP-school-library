@@ -10,7 +10,3 @@ class Teacher < Person
     true
   end
 end
-
-# test create new teacher
-new_teacher = Teacher.new(32, 'Alex', 'Math')
-p new_teacher
