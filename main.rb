@@ -6,5 +6,3 @@ def main
 end
 
 main
-
-

@@ -4,7 +4,6 @@ require_relative 'teacher'
 require_relative 'book'
 require 'colorize'
 
-
 class App
   def initialize()
     @books = []
@@ -19,23 +18,23 @@ class App
     puts '4 - Create a book'
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
-    puts '7 - Exit'.colorize(:color => :red).underline
+    puts '7 - Exit'.colorize(color: :red).underline
     puts "\n\n"
   end
 
   def run
     user_response = 0
-    puts "\n\nWelcome to School Library App!\n\n".colorize(:color => :green).bold
+    puts "\n\nWelcome to School Library App!\n\n".colorize(color: :green).bold
     while user_response != '7'
-      puts "Please choose an option by entering a number:\n\n".colorize(:color => :magenta)
+      puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta)
       app_options
-      print 'Enter Option [number]: '.colorize(:color => :white).bold
+      print 'Enter Option [number]: '.colorize(color: :white).bold
       user_response = gets.chomp
       puts "\n\n"
       check_selection(user_response)
 
     end
-    puts "Thank you for using this app!\n\n".colorize(:color => :cyan).bold if user_response == '7'
+    puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '7'
   end
 
   def check_selection(response)
@@ -150,5 +149,5 @@ class App
   end
 end
 
-p String.colors 
-p String.modes   
+p String.colors
+p String.modes
