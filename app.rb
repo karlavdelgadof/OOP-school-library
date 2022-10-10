@@ -48,7 +48,7 @@ class App
   def check_selection(response)
     case response
     when '0'
-      list_all_books
+      Book.list_all_books(@books)
     when '1'
       Person.list_all_people(@people)
     when '2'
@@ -60,7 +60,9 @@ class App
       @people << person
       puts "\n\nPerson created successfully".colorize(color: :green).italic if @people.include?(person)
     when '5'
-      create_book
+      book = Book.create_book
+      @books << book
+      puts 'Book created successfully' if @books.include?(book)
     when '6'
       rental = Rental.create_rental(@books, @people)
       @rentals << rental
@@ -72,21 +74,5 @@ class App
     end
   end
 
-  def list_all_books
-    @books.each do |book|     
-      puts "Title: \"#{book.title}\" Author: #{book.author}"
-    end
-  end
-
-  def create_book
-    print 'Title: '
-    title = gets.chomp
-    print 'Author: '
-    author = gets.chomp
-
-    book = Book.new(title, author)
-
-    @books << book
-    puts 'Book created successfully' if @books.include?(book)
-  end
+  
 end
