@@ -29,9 +29,13 @@ class App
     puts "\n\nWelcome to School Library App!\n\n".colorize(color: :green).bold
 
     while user_response != '9'
-      puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta)
+      puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta).italic
       @@app_options.each do |choice|       
-        puts choice
+        if choice.include?("Exit")
+          puts choice.colorize(color: :red)
+        else
+          puts choice
+        end
       end
       print "\n\nEnter Option [number]: ".colorize(color: :white).bold
       user_response = gets.chomp
