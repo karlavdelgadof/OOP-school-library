@@ -30,7 +30,7 @@ class App
 
     while user_response != '9'
       puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta).italic
-      @@app_options.each do |choice|
+      @app_options.each do |choice|
         if choice.include?('Exit')
           puts choice.colorize(color: :red)
         else
