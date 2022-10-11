@@ -11,7 +11,7 @@ class App
     @rentals = []
   end
 
-  @app_options = [
+  @@app_options = [
     '[0]  =>  List all books',
     '[1]  =>  List all people',
     '[2]  =>  List all students',
@@ -30,7 +30,7 @@ class App
 
     while user_response != '9'
       puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta).italic
-      @app_options.each do |choice|
+      @@app_options.each do |choice|
         if choice.include?('Exit')
           puts choice.colorize(color: :red)
         else
