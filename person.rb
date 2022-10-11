@@ -41,27 +41,20 @@ class Person < Nameable
 
       case person_choice
       when '1'
-        print 'Has parent permission? [Y/N]: '
-        parent_permission = gets.chomp
-        parent_permission = parent_permission.downcase == 'y'
-        print 'Please enter a classroom: '
-        classroom = gets.chomp
-        person = Student.new(age, name, parent_permission, classroom)
+        Student.create_student(age, name)
       when '2'
-        print 'specialization: '
-        specialization = gets.chomp
-        person = Teacher.new(age, name, true, specialization)
+        Teacher.create_teacher(age, name)
       end
     end
   end
 
   def self.list_all_people(people)
-    unless people.empty?
-      people.each do |person|     
+    if people.empty?
+      'No people found, choose a different option to register a new person'
+    else
+      people.each do |person|
         puts "[#{person.class}] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
       end
-    else 
-      "No people found, choose a different option to register a new person"
     end
   end
 
@@ -69,7 +62,7 @@ class Person < Nameable
     list_all_people(people)
     print 'ID of person: '
     person_id = gets.to_i
-    puts(rentals.map do |rental|     
+    puts(rentals.map do |rental|
       if rental.person.id == person_id
         "Rentals:\nDate: #{rental.date}  Book: #{rental.book.title}"
       else
@@ -77,7 +70,7 @@ class Person < Nameable
       end
     end)
   end
-  
+
   private
 
   def of_age?
