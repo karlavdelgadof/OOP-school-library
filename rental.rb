@@ -23,7 +23,7 @@ class Rental
       print 'Date: '
       date = gets.chomp
       puts 'Select a person from the following list by number (not id)'
-      people.each do |person|       
+      people.each do |person|
         puts "#{people.find_index(person)} - #{person.name}"
       end
       selected_person = gets.to_i

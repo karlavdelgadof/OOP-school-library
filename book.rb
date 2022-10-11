@@ -8,7 +8,7 @@ class Book
   end
 
   def self.list_all_books(books)
-    books.each do |book|     
+    books.each do |book|
       puts "Title: \"#{book.title}\" Author: #{book.author}"
     end
   end
@@ -19,7 +19,7 @@ class Book
     print 'Author: '
     author = gets.chomp
 
-    Book.new(title, author)
+    new(title, author)
   end
 
   def create_rental(person, date)
@@ -27,10 +27,10 @@ class Book
   end
 
   def self.list_all_rentals_for_book(books, rentals)
-    self.list_all_books(books)
+    list_all_books(books)
     print 'Enter Book Title: '
     book_title = gets.chomp
-    puts(rentals.map do |rental|     
+    puts(rentals.map do |rental|
       if rental.book.title == book_title
         "Rentals:\nDate: #{rental.date}  Rented by: #{rental.person.name} (#{rental.person.id}"
       else
@@ -38,5 +38,4 @@ class Book
       end
     end)
   end
-
 end

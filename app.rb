@@ -11,7 +11,7 @@ class App
     @rentals = []
   end
 
-  @@app_options = [
+  @app_options = [
     '[0]  =>  List all books',
     '[1]  =>  List all people',
     '[2]  =>  List all students',
@@ -21,7 +21,7 @@ class App
     '[6]  =>  Create a rental',
     '[7]  =>  List all rentals for a given person id',
     '[8]  =>  List all rentals for a given book',
-    '[9]  =>  Exit'    
+    '[9]  =>  Exit'
   ]
 
   def run
@@ -30,8 +30,8 @@ class App
 
     while user_response != '9'
       puts "Please choose an option by entering a number:\n\n".colorize(color: :magenta).italic
-      @@app_options.each do |choice|       
-        if choice.include?("Exit")
+      @@app_options.each do |choice|
+        if choice.include?('Exit')
           puts choice.colorize(color: :red)
         else
           puts choice
@@ -52,9 +52,9 @@ class App
     when '1'
       Person.list_all_people(@people)
     when '2'
-      lits_all_students
+      Student.lits_all_students(@people)
     when '3'
-      list_all_teachers
+      Teacher.list_all_teachers(@people)
     when '4'
       person = Person.create_person
       @people << person
@@ -73,6 +73,4 @@ class App
       Book.list_all_rentals_for_book(@books, @rentals)
     end
   end
-
-  
 end
