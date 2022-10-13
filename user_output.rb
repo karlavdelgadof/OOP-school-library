@@ -2,9 +2,8 @@ require 'json'
 
 class UserOutput
   def self.load_people(people)
-    return people unless File.exists?("people.json")
-    object = JSON.parse(File.read("people.json"))
-    # parsed_json = JSON.parse(object)
+    return people unless File.exists?("./data/people.json")
+    object = JSON.parse(File.read("./data/people.json"))
     object.each do |person|
       unless person["class"] == 'Teacher'
         student = Student.new(person["age"], person["name"], person["parent_permission"], person["classroom"])
@@ -18,7 +17,13 @@ class UserOutput
     end
   end
 
-  def save_book
+  def self.load_books(books)
+    return books unless File.exists?("./data/books.json")
+    object = JSON.parse(File.read("./data/books.json"))
+    object.each do |book|
+      book_json =  Book.new(book["title"], book["author"])
+      books << book_json
+    end
   end
 
   def save_rentals
