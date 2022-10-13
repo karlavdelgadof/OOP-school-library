@@ -26,8 +26,13 @@ class UserOutput
     end
   end
 
-  def save_rentals
-
+  def self.save_rentals(rentals)
+    return rentals unless File.exists?("./data/rentals.json")
+    object = JSON.parse(File.read("./data/rentals.json"))
+    object.each do |rental|
+      rental_json = Rental.new(rental["date"], rental["book"], rental["person"])
+      rentals << rental_json
+    end
   end
 
   def exit(people)
