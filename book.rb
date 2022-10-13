@@ -18,7 +18,6 @@ class Book
     title = gets.chomp
     print 'Author: '
     author = gets.chomp
-
     new(title, author)
   end
 
