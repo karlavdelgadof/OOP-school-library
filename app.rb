@@ -3,6 +3,9 @@ require_relative 'student'
 require_relative 'teacher'
 require_relative 'book'
 require 'colorize'
+require 'json'
+require_relative 'user_input'
+require_relative 'user_output'
 
 class App
   def initialize()
@@ -27,6 +30,7 @@ class App
   end
 
   def run
+    UserOutput.load_people(@people)
     user_response = 0
     puts "\n\nWelcome to School Library App!\n\n".colorize(color: :green).bold
 
@@ -45,6 +49,7 @@ class App
       check_selection(user_response)
     end
     puts "Thank you for using this app!\n\n".colorize(color: :cyan).bold if user_response == '9'
+    UserInput.save_people(@people)
   end
 
   def check_selection(response)
@@ -64,11 +69,13 @@ class App
     when '5'
       book = Book.create_book
       @books << book
-      puts 'Book created successfully' if @books.include?(book)
+      puts "\n\nBook created successfully\n\n" if @books.include?(book)
+      # json_book = JSON.generate({ title: book.title, author: book.author })
+      # File.write("books.json", "#{json_book},\n", mode: "a")
     when '6'
       rental = Rental.create_rental(@books, @people)
       @rentals << rental
-      puts "\n\nRental created successfully".colorize(color: :green).italic if @rentals.include?(rental)
+      puts "\n\nRental created successfully\n\n".colorize(color: :green).italic if @rentals.include?(rental)
     when '7'
       Person.list_all_rentals_person_id(@people, @rentals)
     when '8'
