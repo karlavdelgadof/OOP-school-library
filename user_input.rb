@@ -21,6 +21,7 @@ class UserInput
         name: person.name, 
         age: person.age,
         specialization: person.specialization,
+        parent_permission: person.parent_permission.to_s
       }
 
       people_json << person
@@ -38,14 +39,23 @@ class UserInput
     File.write("./data/books.json", JSON.pretty_generate(books_json, {indent: "\t", object_nl: "\n"}))
   end
 
-  def self.save_rentals
+  def self.save_rentals(rentals)
     rentals_json =[]
     rentals.each do |rental|
-      rental = { date: rental.date, book: rental.book, person: rental.person }
+      rental = { 
+        date: rental.date, 
+        book: rental.book.title, 
+        person: rental.person.id.to_s
+      }
       rentals_json << rental
     end
     File.write("./data/rentals.json", JSON.pretty_generate(rentals_json, {indent: "\t", object_nl: "\n"}))
+  end
 
+  def self.save_data(people, books, rentals)
+    save_people(people)
+    save_books(books)
+    save_rentals(rentals)
   end
 
 end

@@ -26,17 +26,25 @@ class UserOutput
     end
   end
 
-  def self.save_rentals(rentals)
+  def self.load_rentals(books, people, rentals)
     return rentals unless File.exists?("./data/rentals.json")
     object = JSON.parse(File.read("./data/rentals.json"))
     object.each do |rental|
-      rental_json = Rental.new(rental["date"], rental["book"], rental["person"])
+      book_title = books.find do |book|
+        book.title == rental["book"]
+      end
+      person_id = people.find do |person|
+        person.id == rental["person"]
+      end 
+      rental_json = Rental.new(rental["date"], book_title, person_id)
       rentals << rental_json
     end
   end
 
-  def exit(people)
-    save_people(people)
+  def self.load_data(people, books, rentals)
+    load_people(people)
+    load_books(books)
+    load_rentals(books, people, rentals)
   end
 
 end
