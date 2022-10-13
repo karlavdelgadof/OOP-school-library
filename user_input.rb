@@ -38,7 +38,13 @@ class UserInput
     File.write("./data/books.json", JSON.pretty_generate(books_json, {indent: "\t", object_nl: "\n"}))
   end
 
-  def save_rentals
+  def self.save_rentals
+    rentals_json =[]
+    rentals.each do |rental|
+      rental = { date: rental.date, book: rental.book, person: rental.person }
+      rentals_json << rental
+    end
+    File.write("./data/rentals.json", JSON.pretty_generate(rentals_json, {indent: "\t", object_nl: "\n"}))
 
   end
 
