@@ -60,14 +60,12 @@ class Person < Nameable
   def self.list_all_rentals_person_id(people, rentals)
     list_all_people(people)
     print 'ID of person: '
-    person_id = gets.to_i
-    puts(rentals.map do |rental|
+    person_id = gets.chomp
+    rentals.map do |rental|
       if rental.person.id == person_id
-        "Rentals:\nDate: #{rental.date}  Book: #{rental.book.title}"
-      else
-        'No rentals found for this person'
+        puts "Rentals:\nDate: #{rental.date}  Book: #{rental.book.title}"
       end
-    end)
+    end
   end
 
   private
