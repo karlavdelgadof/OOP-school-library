@@ -4,8 +4,7 @@ require_relative 'capitalize_dec'
 require_relative 'trim_dec'
 
 class Person < Nameable
-  attr_reader :id, :rentals
-  attr_accessor :name, :age
+  attr_accessor :name, :age, :id, :parent_permission, :rentals
 
   def initialize(age, name, parent_permission)
     super()
