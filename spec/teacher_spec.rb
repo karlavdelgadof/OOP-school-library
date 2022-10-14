@@ -1,17 +1,24 @@
-require './teacher'
+require_relative '../teacher'
 
 describe Teacher do
-  context "When creating a new instance of the Teacher class" do
-    it "The constructor method returns a Teacher object with provided age, name, parent permission and specialization" do
-      age = 35
-      name = "Emilia Bridgerton"
-      specialization = "Math"
-      teacher = Teacher.new(age, name, true, specialization)
-
-      expect(teacher.age).to eql age
-      expect(teacher.name).to eql name
-      expect(teacher.specialization).to eql specialization
-      expect(teacher.parent_permission).to be true
+    before(:each) do
+        @teacher = Teacher.new(38, 'Taylor', true, 'Programming')
     end
+
+  it 'Should be able to create a teacher age' do
+    expect(@teacher.age).to eq 38
   end
+
+  it 'Should be able to create a teacher name' do
+    expect(@teacher.name).to eq 'Taylor'
+  end
+
+  it 'Should be able to create a teacher parent permission' do
+    expect(@teacher.parent_permission).to eq true
+  end
+
+  it 'Should be able to create a teacher specialization' do
+    expect(@teacher.specialization).to eq 'Programming'
+  end
+
 end
