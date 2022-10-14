@@ -1,16 +1,24 @@
-require './person'
+require_relative '../person'
 
 describe Person do
-  context "When creating a new instance of the Person class" do
-    it "The constructor method returns a Person object with provided age, name, parent permission, and empty rentals" do
-      age = 30
-      name = "Lucia Dawson"
-      person = Person.new(age, name, false)
+  before :each do
+    @person = Person.new(38, 'Taylor', parent_permission: true)
+  end
 
-      expect(person.age).to eql age
-      expect(person.name).to eql name
-      expect(person.rentals).to eql []
-      expect(person.parent_permission).to be false
-    end
+  it 'should be an object instance of Person' do
+    expect(@person).to be_an_instance_of Person
+  end
+
+  it 'the can_use_services? should return true' do
+    permission = @person.can_use_services?
+    expect(permission).to eq true
+  end
+
+  it 'the method should return Taylor' do
+    expect(@person.name).to eq 'Taylor'
+  end
+
+  it 'the method getter age should return 38' do
+    expect(@person.age).to eq 38
   end
 end
