@@ -1,17 +1,28 @@
-require './student'
+require_relative '../student'
 
 describe Student do
-  context "When creating a new instance of the Student class" do
-    it "The constructor method returns a Student object with provided age, name, parent permission and classroom" do
-      age = 14
-      name = "Agustina"
-      classroom = "4"
-      student = Student.new(age, name, true, classroom)
-
-      expect(student.age).to eql age
-      expect(student.name).to eql name
-      expect(student.classroom).to eql classroom
-      expect(student.parent_permission).to be true
+    before(:each) do
+        @student = Student.new(38, 'Taylor', true, 'Ruby')
     end
+    
+  it 'should say "¯\(ツ)/¯" when call the play_hooky method' do
+    expect(@student.play_hooky).to eql "¯\(ツ)/¯"
   end
+  
+  it 'Should be able to create a student age' do
+    expect(@student.age).to eq 38
+  end
+
+  it 'Should be able to create a student name' do
+    expect(@student.name).to eq 'Taylor'
+  end
+
+  it 'Should be able to create a student parent permission' do
+    expect(@student.parent_permission).to eq true
+  end
+
+  it 'Should be able to create a student classroom' do
+    expect(@student.classroom).to eq 'Ruby'
+  end
+
 end
