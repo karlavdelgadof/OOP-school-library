@@ -70,8 +70,6 @@ class App
       book = Book.create_book
       @books << book
       puts "\n\nBook created successfully\n\n" if @books.include?(book)
-      # json_book = JSON.generate({ title: book.title, author: book.author })
-      # File.write("books.json", "#{json_book},\n", mode: "a")
     when '6'
       rental = Rental.create_rental(@books, @people)
       @rentals << rental
