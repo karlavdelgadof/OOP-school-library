@@ -2,23 +2,17 @@ require_relative '../teacher'
 
 describe Teacher do
     before(:each) do
-        @teacher = Teacher.new(38, 'Taylor', true, 'Programming')
+        @teacher = Teacher.new(38, 'Taylor', false, 'Programming')
     end
 
-  it 'Should be able to create a teacher age' do
-    expect(@teacher.age).to eq 38
-  end
-
-  it 'Should be able to create a teacher name' do
-    expect(@teacher.name).to eq 'Taylor'
-  end
-
-  it 'Should be able to create a teacher parent permission' do
-    expect(@teacher.parent_permission).to eq true
-  end
-
-  it 'Should be able to create a teacher specialization' do
+  it 'Should return the values provided to the constructor class' do
+    expect(@teacher.age).to eql 38
+    expect(@teacher.name).to eql 'Taylor'
+    expect(@teacher.parent_permission).to eq false
     expect(@teacher.specialization).to eq 'Programming'
   end
 
+  it 'The method can_use_services? should return true' do
+    expect(@teacher.can_use_services?).to eq true
+  end
 end
