@@ -52,14 +52,20 @@ Kindly modify the files as needed.
 - Twitter: [@karlavdelgadof](https://twitter.com/karlavdelgadof)
 - LinkedIn: [Karla Delgado](https://www.linkedin.com/in/karla-delgado-613a32239/)
 
+:woman_technologist:  **Ijeoma Odinko** :writing_hand: 
+
+- GitHub: [@ijeomaodinko](https://github.com/ijeomaodinko)
+- Twitter: [@pureblog09](https://twitter.com/pureblog09)
+- LinkedIn: [ijeomaodinko](https://linkedin.com/in/ijeomaodinko) 
+
 ## Project Milestones 📌 
 
 - Milestone 1: Add Person, Student, and Teacher classes. ✅
 - Milestone 2: Use the "Decorator" design pattern. ✅
 - Milestone 3: Set up associations.	✅
 - Milestone 4: Add basic UI. ✅
-- Milestone 5: Refactor the code. ⚙️
-- Milestone 6: Preserve data. ⚙️
+- Milestone 5: Refactor the code. ✅
+- Milestone 6: Preserve data. ✅
 - Milestone 7: Unit tests. ⚙️
 
 ## 🤝 Contributing
