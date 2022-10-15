@@ -33,7 +33,7 @@ class Book
       if rental.book.title == book_title
         "Rentals:\nDate: #{rental.date}  Rented by: #{rental.person.name} (#{rental.person.id}"
       else
-        return 'No rentals found for this book'
+        'No rentals found for this book'
       end
     end)
   end

@@ -1,9 +1,9 @@
 require_relative '../teacher'
 
 describe Teacher do
-    before(:each) do
-        @teacher = Teacher.new(38, 'Taylor', false, 'Programming')
-    end
+  before(:each) do
+    @teacher = Teacher.new(38, 'Taylor', false, 'Programming')
+  end
 
   it 'Should return the values provided to the constructor class' do
     expect(@teacher.age).to eql 38
